@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin – Salon Webb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css?v=1.2.0">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <span class="login-logo-mark">SW</span>
+      <span class="login-logo-text">Salon Webb</span>
+    </div>
+    <p class="login-sub">Nordic Operations Admin v1.2.0</p>
+    <form id="login-form" autocomplete="on">
+      <div class="field-group">
+        <label for="login-email">E-mail</label>
+        <input type="email" id="login-email" name="email" placeholder="admin@salonwebb.dk" autocomplete="email" required>
+      </div>
+      <div class="field-group">
+        <label for="login-pwd">Adgangskode</label>
+        <input type="password" id="login-pwd" name="password" placeholder="••••••••" autocomplete="current-password" required>
+      </div>
+      <p id="login-error" class="login-error hidden"></p>
+      <button type="submit" class="login-btn">Log ind</button>
+    </form>
+    <a href="index.html" class="login-back">← Tilbage til sitet</a>
+  </div>
+  <p class="login-credit">Bygget af <a href="https://nordicoperations.dk" target="_blank">Nordic Operations</a></p>
+</div>
+
+<!-- ADMIN APP -->
+<div id="admin-app" class="admin-app hidden">
+
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-logo">Salon Webb</span>
+      <button class="sidebar-close" id="sidebar-close" aria-label="Luk">✕</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="snav active" data-panel="dashboard">   <span class="snav-ico">📊</span> Dashboard</a>
+      <a href="#" class="snav" data-panel="forside">            <span class="snav-ico">🏠</span> Forside</a>
+      <a href="#" class="snav" data-panel="indholdskort">       <span class="snav-ico">💬</span> Om os – kort</a>
+      <a href="#" class="snav" data-panel="behandlinger">       <span class="snav-ico">✂️</span> Behandlinger</a>
+      <a href="#" class="snav" data-panel="priser">             <span class="snav-ico">💰</span> Priser</a>
+      <a href="#" class="snav" data-panel="produktbrands">      <span class="snav-ico">🛍️</span> Produkter</a>
+      <a href="#" class="snav" data-panel="team">               <span class="snav-ico">👥</span> Team</a>
+      <a href="#" class="snav" data-panel="tilbudsliste">       <span class="snav-ico">🏷️</span> Tilbud</a>
+      <a href="#" class="snav" data-panel="galleri">            <span class="snav-ico">🖼️</span> Galleri</a>
+      <a href="#" class="snav" data-panel="aabningstider">      <span class="snav-ico">🕐</span> Åbningstider</a>
+      <a href="#" class="snav" data-panel="kontakt">            <span class="snav-ico">📞</span> Kontakt</a>
+      <a href="#" class="snav" data-panel="seo">                <span class="snav-ico">🔍</span> SEO</a>
+      <a href="#" class="snav" data-panel="qr">                 <span class="snav-ico">📱</span> QR-koder</a>
+      <a href="#" class="snav" data-panel="backup">             <span class="snav-ico">💾</span> Backup</a>
+      <a href="#" class="snav" data-panel="test">               <span class="snav-ico">✅</span> Testcenter</a>
+      <a href="#" class="snav" data-panel="indstillinger">      <span class="snav-ico">⚙️</span> Indstillinger</a>
+    </nav>
+    <div class="sidebar-footer">
+      <span id="sidebar-user">Admin</span>
+      <button id="logout-btn" class="logout-btn">Log ud</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <button class="topbar-hamburger" id="topbar-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="topbar-title" id="topbar-title">Dashboard</h1>
+      <div class="topbar-actions">
+        <a href="index.html" target="_blank" class="topbar-preview">👁 Se site</a>
+        <button id="global-save" class="topbar-save">Gem</button>
+      </div>
+    </div>
+    <div id="save-toast" class="save-toast hidden">✓ Gemt</div>
+
+    <div class="panels" id="panels">
+
+      <!-- DASHBOARD -->
+      <div class="panel active" id="panel-dashboard">
+        <div class="panel-header"><h2>Dashboard</h2><p>Salon Webb · v1.2.0</p></div>
+        <div class="dash-stats" id="dash-stats"></div>
+        <div class="dash-grid">
+          <div class="dash-card"><h3>Version</h3><div id="dash-version"></div></div>
+          <div class="dash-card"><h3>Seneste backup</h3><div id="dash-backup"></div></div>
+          <div class="dash-card"><h3>Hurtige links</h3><div id="dash-quick-links"></div></div>
+          <div class="dash-card"><h3>Systemstatus</h3><div id="dash-status"></div></div>
+        </div>
+      </div>
+
+      <!-- FORSIDE -->
+      <div class="panel hidden" id="panel-forside">
+        <div class="panel-header"><h2>Forside</h2><p>Hero og logo</p></div>
+        <div class="form-section">
+          <h3>Logo & tekster</h3>
+          <div class="field-group"><label>Salon-navn (logo)</label><input type="text" id="f-salon-navn"></div>
+          <div class="field-group"><label>Tagline</label><input type="text" id="f-tagline"></div>
+          <div class="field-group"><label>Hero overskrift</label><input type="text" id="f-hero-overskrift"></div>
+          <div class="field-group"><label>Hero undertitel</label><input type="text" id="f-hero-undertitel"></div>
+          <div class="field-group"><label>Eyebrow (lille tekst over overskrift)</label><input type="text" id="f-hero-eyebrow"></div>
+          <div class="field-group">
+            <label>Baggrundsbillede URL (HTTPS)</label>
+            <input type="url" id="f-hero-baggrund">
+            <span class="field-hint">Brug Unsplash eller eget billede. Skal starte med https://</span>
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>Hero-knapper</h3>
+          <div id="hero-knapper-list"></div>
+        </div>
+      </div>
+
+      <!-- OM OS / INDHOLDSKORT -->
+      <div class="panel hidden" id="panel-indholdskort">
+        <div class="panel-header"><h2>Om os – Indholdskort</h2><p>De tre centrale kort på forsiden</p></div>
+        <button class="add-btn" id="add-ikort">+ Tilføj kort</button>
+        <div id="indholdskort-list" class="item-list"></div>
+      </div>
+
+      <!-- BEHANDLINGER -->
+      <div class="panel hidden" id="panel-behandlinger">
+        <div class="panel-header"><h2>Behandlinger</h2></div>
+        <button class="add-btn" id="add-behandling">+ Tilføj behandling</button>
+        <div id="behandlinger-list" class="item-list"></div>
+      </div>
+
+      <!-- PRISER -->
+      <div class="panel hidden" id="panel-priser">
+        <div class="panel-header"><h2>Priser</h2></div>
+        <div class="form-section">
+          <h3>Kategorier</h3>
+          <div id="price-kats-list"></div>
+          <button class="add-btn-sm" id="add-price-kat">+ Tilføj kategori</button>
+        </div>
+        <div class="form-section">
+          <h3>Prisliste</h3>
+          <button class="add-btn" id="add-price">+ Tilføj ydelse</button>
+          <div id="priser-list" class="item-list"></div>
+        </div>
+      </div>
+
+      <!-- PRODUKTBRANDS -->
+      <div class="panel hidden" id="panel-produktbrands">
+        <div class="panel-header"><h2>Produkter</h2><p>Brands og produktsortiment</p></div>
+        <p class="section-note">Tilføj produktbrand med logo-URL, tekst og op til 4 produktbilleder</p>
+        <button class="add-btn" id="add-pbrand">+ Tilføj brand</button>
+        <div id="produktbrands-list" class="item-list"></div>
+      </div>
+
+      <!-- TEAM -->
+      <div class="panel hidden" id="panel-team">
+        <div class="panel-header"><h2>Team</h2><p>Frisører og elever</p></div>
+        <button class="add-btn" id="add-team">+ Tilføj medarbejder</button>
+        <div id="team-list" class="item-list"></div>
+      </div>
+
+      <!-- TILBUD -->
+      <div class="panel hidden" id="panel-tilbudsliste">
+        <div class="panel-header"><h2>Tilbud</h2><p>Elev tilbud & månedens tilbud</p></div>
+        <div class="form-section">
+          <h3>Intro-tekst</h3>
+          <div class="field-group">
+            <textarea id="tilbud-intro-tekst" rows="3" placeholder="Alle aktuelle tilbud..."></textarea>
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>Simpelt kampagnebanner (øverst på sitet)</h3>
+          <div class="field-group toggle-group">
+            <label>Aktivér banner</label>
+            <label class="toggle"><input type="checkbox" id="tilbud-banner-aktiv"><span class="toggle-slider"></span></label>
+          </div>
+          <div class="field-group"><label>Bannertekst</label><input type="text" id="tilbud-banner-tekst" maxlength="120"></div>
+          <div class="form-row">
+            <div class="field-group"><label>Fra dato</label><input type="date" id="tilbud-banner-start"></div>
+            <div class="field-group"><label>Til dato</label><input type="date" id="tilbud-banner-slut"></div>
+          </div>
+          <div class="field-group"><label>Bannerfarve</label><input type="color" id="tilbud-banner-farve" value="#C9A96E"></div>
+        </div>
+        <div class="form-section">
+          <h3>Tilbudskort</h3>
+          <button class="add-btn" id="add-tilbud">+ Tilføj tilbud</button>
+          <div id="tilbudsliste-list" class="item-list"></div>
+        </div>
+      </div>
+
+      <!-- GALLERI -->
+      <div class="panel hidden" id="panel-galleri">
+        <div class="panel-header"><h2>Galleri</h2></div>
+        <div class="galleri-upload-area">
+          <p>Tilføj billede via URL (kun HTTPS)</p>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <input type="url" id="galleri-url-input" placeholder="https://images.unsplash.com/..." style="flex:2;min-width:200px">
+            <input type="text" id="galleri-titel-input" placeholder="Titel (valgfri)" style="flex:1;min-width:120px">
+            <button id="add-galleri-url" class="add-btn-sm" style="white-space:nowrap">+ Tilføj</button>
+          </div>
+        </div>
+        <div id="galleri-list" class="galleri-admin-grid"></div>
+      </div>
+
+      <!-- ÅBNINGSTIDER -->
+      <div class="panel hidden" id="panel-aabningstider">
+        <div class="panel-header"><h2>Åbningstider</h2></div>
+        <div id="hours-admin-list"></div>
+        <div class="form-section" style="margin-top:16px">
+          <h3>Feriemeddelelse</h3>
+          <div class="field-group"><input type="text" id="ferie-tekst" placeholder="Lukket 1.–14. juli – God sommer!"></div>
+        </div>
+        <div class="form-section">
+          <h3>Helligdage & særlige lukkedage</h3>
+          <button class="add-btn-sm" id="add-helligdag">+ Tilføj dato</button>
+          <div id="helligdage-list" style="margin-top:10px"></div>
+        </div>
+      </div>
+
+      <!-- KONTAKT -->
+      <div class="panel hidden" id="panel-kontakt">
+        <div class="panel-header"><h2>Kontakt</h2></div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Telefon (kun cifre)</label>
+            <input type="tel" id="k-tlf" placeholder="76131413" maxlength="8">
+            <a id="test-tlf" href="#" class="field-test-link">📞 Test</a>
+          </div>
+          <div class="field-group">
+            <label>SMS (kan være samme)</label>
+            <input type="tel" id="k-sms" placeholder="76131413" maxlength="8">
+          </div>
+          <div class="field-group">
+            <label>E-mail</label>
+            <input type="email" id="k-mail">
+            <a id="test-mail" href="#" class="field-test-link">✉️ Test</a>
+          </div>
+          <div class="field-group">
+            <label>Adresse</label>
+            <input type="text" id="k-adresse" placeholder="Bytoften 30">
+          </div>
+          <div class="field-group">
+            <label>By</label>
+            <input type="text" id="k-by" placeholder="6710 Esbjerg V">
+          </div>
+          <div class="field-group">
+            <label>Google Maps URL</label>
+            <input type="url" id="k-maps">
+            <a id="test-maps" href="#" target="_blank" class="field-test-link">🗺️ Test</a>
+          </div>
+          <div class="field-group">
+            <label>Booking URL</label>
+            <input type="url" id="k-booking">
+            <a id="test-booking" href="#" target="_blank" class="field-test-link">📅 Test</a>
+          </div>
+          <div class="field-group">
+            <label>Instagram URL</label>
+            <input type="url" id="k-instagram">
+            <a id="test-instagram" href="#" target="_blank" class="field-test-link">📸 Test</a>
+          </div>
+          <div class="field-group">
+            <label>Facebook URL</label>
+            <input type="url" id="k-facebook">
+            <a id="test-facebook" href="#" target="_blank" class="field-test-link">👍 Test</a>
+          </div>
+          <div class="field-group" style="grid-column:1/-1">
+            <label>Site URL (til QR-koder)</label>
+            <input type="url" id="k-siteurl" placeholder="https://salonwebb.dk">
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO -->
+      <div class="panel hidden" id="panel-seo">
+        <div class="panel-header"><h2>SEO & Meta</h2></div>
+        <div class="form-grid">
+          <div class="field-group" style="grid-column:1/-1">
+            <label>Side-titel (Google)</label>
+            <input type="text" id="seo-titel" maxlength="70">
+            <span class="field-hint">Maks. 60 tegn</span>
+          </div>
+          <div class="field-group" style="grid-column:1/-1">
+            <label>Meta-beskrivelse</label>
+            <textarea id="seo-beskrivelse" rows="3" maxlength="160"></textarea>
+            <span class="field-hint">Maks. 155 tegn</span>
+          </div>
+          <div class="field-group" style="grid-column:1/-1">
+            <label>Open Graph billede URL</label>
+            <input type="url" id="seo-og-billede">
+          </div>
+        </div>
+        <div class="seo-preview">
+          <h3>Google Preview</h3>
+          <div class="google-preview">
+            <div class="gp-url">salonwebb.dk</div>
+            <div class="gp-title" id="gp-title"></div>
+            <div class="gp-desc" id="gp-desc"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR -->
+      <div class="panel hidden" id="panel-qr">
+        <div class="panel-header"><h2>QR-koder</h2><p>Download til print og deling</p></div>
+        <div id="qr-main-grid" class="qr-main-grid"></div>
+      </div>
+
+      <!-- BACKUP -->
+      <div class="panel hidden" id="panel-backup">
+        <div class="panel-header"><h2>Backup & Gendannelse</h2></div>
+        <div class="backup-grid">
+          <div class="backup-card"><h3>📤 Eksportér</h3><p>Download al data som JSON</p><button id="btn-export" class="action-btn">Download JSON</button></div>
+          <div class="backup-card"><h3>📥 Importér</h3><p>Gendan fra JSON-backup</p><input type="file" id="import-file" accept=".json" style="display:none"><button id="btn-import" class="action-btn">Vælg fil</button></div>
+          <div class="backup-card"><h3>🔄 Nulstil</h3><p>Gendan standardindhold</p><button id="btn-reset" class="action-btn action-btn-danger">Nulstil alt</button></div>
+          <div class="backup-card"><h3>📋 Oversigt</h3><div id="data-overview"></div></div>
+        </div>
+        <div class="form-section"><h3>Changelog</h3><div id="changelog-display" class="changelog-display"></div></div>
+      </div>
+
+      <!-- TESTCENTER -->
+      <div class="panel hidden" id="panel-test">
+        <div class="panel-header"><h2>Testcenter</h2></div>
+        <button class="add-btn" id="run-all-tests">▶ Kør alle tests</button>
+        <div id="test-results" class="test-results"></div>
+      </div>
+
+      <!-- INDSTILLINGER -->
+      <div class="panel hidden" id="panel-indstillinger">
+        <div class="panel-header"><h2>Indstillinger</h2></div>
+        <div class="form-section">
+          <h3>Brugere</h3>
+          <div id="brugere-list" class="item-list"></div>
+          <button class="add-btn" id="add-bruger">+ Tilføj bruger</button>
+        </div>
+        <div class="form-section">
+          <h3>Skift adgangskode</h3>
+          <div class="form-row">
+            <div class="field-group"><label>Ny adgangskode (min. 8 tegn)</label><input type="password" id="new-pwd" minlength="8"></div>
+            <div class="field-group"><label>Gentag</label><input type="password" id="new-pwd2"></div>
+          </div>
+          <button class="action-btn" id="change-pwd-btn">Gem adgangskode</button>
+        </div>
+        <div class="form-section">
+          <h3>Versionsnummer</h3>
+          <p class="section-note">Nuværende: <strong id="current-version"></strong></p>
+          <div class="form-row">
+            <div class="field-group"><label>Ny version</label><input type="text" id="new-version" placeholder="1.2.1"></div>
+            <button class="action-btn" id="bump-version-btn" style="margin-top:22px">Opdatér</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panels -->
+  </main>
+</div>
+
+<script src="data.js?v=1.2.0"></script>
+<script src="admin.js?v=1.2.0"></script>
+</body>
+</html>
