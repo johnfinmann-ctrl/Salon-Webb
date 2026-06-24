@@ -11,18 +11,18 @@
   <meta property="og:title" content="Salon Webb – Frisør i Esbjerg V">
   <meta property="og:description" content="Professionelle frisører i Esbjerg V. Book tid online eller ring 76 13 14 13.">
   <meta property="og:type" content="website">
-  <title id="page-title">Salon Webb – Frisør i Esbjerg V</title>
+  <title>Salon Webb – Frisør i Esbjerg V</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="icons/icon-192.png">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1.2.0">
+  <link rel="stylesheet" href="styles.css?v=1.2.2">
 </head>
 <body>
 
-<!-- TILBUD BANNER (simpelt øverst) -->
+<!-- TILBUD BANNER -->
 <div id="tilbud-banner" class="tilbud-banner hidden">
   <span id="tilbud-tekst"></span>
   <button id="tilbud-luk" aria-label="Luk tilbud">✕</button>
@@ -30,31 +30,59 @@
 
 <!-- OFFLINE BANNER -->
 <div id="offline-banner" class="offline-banner hidden">
-  <span>📡 Du er offline – ring eller send SMS</span>
+  <span>📡 Du er offline – ring på <a href="tel:+4576131413" style="color:inherit;text-decoration:underline">76 13 14 13</a></span>
 </div>
 
-<!-- TOP NAVIGATION -->
-<nav class="top-nav" id="top-nav">
-  <div class="nav-container">
-    <a href="#hjem" class="nav-logo" id="nav-logo">Salon Webb</a>
-    <div class="nav-right">
-      <ul class="nav-links" id="nav-links" role="list"></ul>
-      <a href="#" class="nav-book-btn" id="nav-book-btn">Book tid</a>
-      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
+<!-- ═══════════ TOPNAVIGATION ═══════════ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
 
-<!-- MOBILE MENU OVERLAY -->
-<div class="mobile-menu-overlay hidden" id="mobile-menu-overlay" role="dialog" aria-label="Navigation">
-  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Luk menu">✕</button>
-  <ul id="mobile-menu-links" role="list"></ul>
-  <div class="mobile-menu-kontakt">
-    <a href="#" id="mm-book" class="mm-btn mm-btn-gold">📅 Book tid</a>
-    <a href="#" id="mm-tlf" class="mm-btn">📞 Ring</a>
-    <a href="#" id="mm-sms" class="mm-btn">💬 SMS</a>
+    <!-- Logo -->
+    <a href="#hjem" class="header-logo" id="header-logo" aria-label="Salon Webb – til forsiden">
+      Salon Webb
+    </a>
+
+    <!-- Desktop menu -->
+    <nav class="header-nav" id="header-nav" aria-label="Hovedmenu">
+      <a href="#hjem">Forside</a>
+      <a href="#om-os">Frisører</a>
+      <a href="#priser">Priser</a>
+      <a href="#produkter">Produkter</a>
+      <a href="#tilbud">Tilbud</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <!-- Book-knap (altid synlig på desktop) -->
+    <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+       class="header-book-btn" id="header-book-btn">
+      📅 Book tid
+    </a>
+
+    <!-- Hamburger (kun mobil) -->
+    <button class="header-hamburger" id="header-hamburger"
+            aria-label="Åbn menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- ═══════════ MOBIL MENU OVERLAY ═══════════ -->
+<div class="mobile-nav hidden" id="mobile-nav" role="dialog" aria-label="Navigation" aria-modal="true">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Luk menu">✕</button>
+  <nav aria-label="Mobilmenu">
+    <a href="#hjem"      class="mnav-link"><span class="mnav-ico">🏠</span> Forside</a>
+    <a href="#om-os"     class="mnav-link"><span class="mnav-ico">✂️</span> Frisører</a>
+    <a href="#priser"    class="mnav-link"><span class="mnav-ico">💰</span> Priser</a>
+    <a href="#produkter" class="mnav-link"><span class="mnav-ico">🛍️</span> Produkter</a>
+    <a href="#tilbud"    class="mnav-link"><span class="mnav-ico">🏷️</span> Tilbud</a>
+    <a href="#kontakt"   class="mnav-link"><span class="mnav-ico">📞</span> Kontakt</a>
+  </nav>
+  <div class="mnav-btns">
+    <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+       class="mnav-btn mnav-btn-gold">📅 Book tid</a>
+    <a href="tel:+4576131413" class="mnav-btn">📞 Ring</a>
+    <a href="sms:+4576131413" class="mnav-btn">💬 SMS</a>
   </div>
 </div>
 
@@ -63,11 +91,18 @@
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow" id="hero-eyebrow">Esbjerg</p>
+    <p class="hero-eyebrow">Esbjerg V</p>
     <h1 class="hero-title" id="hero-title">Salon Webb</h1>
     <div class="hero-rule"></div>
-    <p class="hero-sub" id="hero-sub">Din frisør i Esbjerg V</p>
-    <div class="hero-btns" id="hero-btns"></div>
+    <p class="hero-sub" id="hero-sub">Din frisør i Esbjerg V · Bytoften 30</p>
+    <div class="hero-btns">
+      <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+         class="hbtn hbtn-primary">📅 Book tid</a>
+      <a href="tel:+4576131413" class="hbtn hbtn-ghost">📞 Ring</a>
+      <a href="sms:+4576131413" class="hbtn hbtn-ghost">💬 SMS</a>
+      <a href="https://maps.google.com/?q=Bytoften+30+6710+Esbjerg" target="_blank" rel="noopener noreferrer"
+         class="hbtn hbtn-ghost">📍 Find vej</a>
+    </div>
   </div>
   <div class="hero-scroll"><span></span></div>
 </section>
@@ -79,23 +114,14 @@
       <p class="label">Om os</p>
       <h2 class="section-title">Hvem er vi?</h2>
     </div>
-    <div class="indholdskort-grid" id="indholdskort-grid"></div>
-  </div>
-</section>
-
-<!-- ═══════════ BEHANDLINGER ═══════════ -->
-<section id="behandlinger" class="section bg-sand">
-  <div class="container">
-    <div class="section-head">
-      <p class="label">Vi tilbyder</p>
-      <h2 class="section-title">Behandlinger</h2>
+    <div class="indholdskort-grid" id="indholdskort-grid">
+      <!-- Fallback – gengives af JS, men vises statisk hvis JS fejler -->
     </div>
-    <div class="behandlinger-grid" id="behandlinger-grid"></div>
   </div>
 </section>
 
 <!-- ═══════════ PRISER ═══════════ -->
-<section id="priser" class="section bg-light">
+<section id="priser" class="section bg-sand">
   <div class="container">
     <div class="section-head">
       <p class="label">Hvad koster det?</p>
@@ -104,6 +130,10 @@
     <div class="price-tabs" id="price-tabs"></div>
     <div class="price-grid" id="price-grid"></div>
     <p class="price-note">Alle priser er inkl. moms · Tillæg for ekstra langt hår kan forekomme</p>
+    <div style="text-align:center;margin-top:28px">
+      <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+         class="hbtn hbtn-primary" style="display:inline-flex">📅 Book tid nu</a>
+    </div>
   </div>
 </section>
 
@@ -134,9 +164,13 @@
   <div class="container">
     <div class="section-head">
       <p class="label">Aktuelle tilbud</p>
-      <h2 class="section-title">Elev tilbud & månedens tilbud</h2>
+      <h2 class="section-title">Elev tilbud &amp; månedens tilbud</h2>
     </div>
-    <p class="tilbud-intro" id="tilbud-intro"></p>
+    <p class="tilbud-intro" id="tilbud-intro">
+      Alle aktuelle tilbud i salonen vil blive vist her.<br>
+      Har du spørgsmål, kan du kontakte os på
+      <a href="tel:+4576131413" style="color:var(--gold-deep);font-weight:500">76 13 14 13</a>.
+    </p>
     <div class="tilbudskort-grid" id="tilbudskort-grid"></div>
     <div class="tilbud-empty hidden" id="tilbud-empty">
       <p>Ingen aktive tilbud lige nu – følg os på sociale medier for at se kommende tilbud.</p>
@@ -182,52 +216,122 @@
   <div class="container">
     <div class="section-head">
       <p class="label">Vi er her</p>
-      <h2 class="section-title">Kontakt & Find os</h2>
+      <h2 class="section-title">Kontakt &amp; Find os</h2>
     </div>
     <div class="kontakt-layout">
-      <div class="kontakt-info" id="kontakt-info"></div>
+      <div class="kontakt-info">
+
+        <div class="kontakt-item">
+          <span class="kontakt-ico">📍</span>
+          <div>
+            <p class="kontakt-lbl">Adresse</p>
+            <a href="https://maps.google.com/?q=Bytoften+30+6710+Esbjerg"
+               target="_blank" rel="noopener noreferrer"
+               class="kontakt-link kontakt-val">Bytoften 30<br>6710 Esbjerg V</a>
+          </div>
+        </div>
+
+        <div class="kontakt-item">
+          <span class="kontakt-ico">📞</span>
+          <div>
+            <p class="kontakt-lbl">Telefon</p>
+            <a href="tel:+4576131413" class="kontakt-link kontakt-val">76 13 14 13</a>
+          </div>
+        </div>
+
+        <div class="kontakt-item">
+          <span class="kontakt-ico">💬</span>
+          <div>
+            <p class="kontakt-lbl">SMS</p>
+            <a href="sms:+4576131413" class="kontakt-link kontakt-val">76 13 14 13</a>
+          </div>
+        </div>
+
+        <div class="kontakt-item">
+          <span class="kontakt-ico">📅</span>
+          <div>
+            <p class="kontakt-lbl">Book tid online</p>
+            <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+               class="kontakt-link kontakt-val">salonwebb.bestilling.nu →</a>
+          </div>
+        </div>
+
+        <div class="kontakt-item" id="kontakt-mail-wrap" style="display:none">
+          <span class="kontakt-ico">✉️</span>
+          <div>
+            <p class="kontakt-lbl">E-mail</p>
+            <a href="#" id="kontakt-mail-link" class="kontakt-link kontakt-val"></a>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="#" id="kontakt-ig" class="social-btn" target="_blank" rel="noopener noreferrer"
+             style="display:none">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>Instagram
+          </a>
+          <a href="#" id="kontakt-fb" class="social-btn" target="_blank" rel="noopener noreferrer"
+             style="display:none">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>Facebook
+          </a>
+          <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer"
+             class="social-btn social-btn-gold">📅 Book tid</a>
+        </div>
+
+      </div><!-- /kontakt-info -->
+
       <div class="kontakt-map">
-        <a id="maps-link" href="#" target="_blank" rel="noopener" class="map-box">
+        <a href="https://maps.google.com/?q=Bytoften+30+6710+Esbjerg"
+           target="_blank" rel="noopener noreferrer" class="map-box" id="maps-link">
           <div class="map-inner">
             <span class="map-emoji">🗺️</span>
             <span class="map-text">Åbn i Google Maps</span>
+            <span class="map-addr">Bytoften 30, Esbjerg V</span>
           </div>
         </a>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-logo" id="footer-logo">Salon Webb</p>
-    <p class="footer-sub" id="footer-sub">Din frisør i Esbjerg V</p>
+    <p class="footer-logo">Salon Webb</p>
+    <p class="footer-sub">Bytoften 30 · 6710 Esbjerg V · <a href="tel:+4576131413">76 13 14 13</a></p>
     <div class="footer-links">
-      <a href="#" id="footer-fb">Facebook</a>
-      <a href="#" id="footer-ig">Instagram</a>
+      <a href="#" id="footer-ig" style="display:none">Instagram</a>
+      <a href="#" id="footer-fb" style="display:none">Facebook</a>
+      <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer">Book tid</a>
       <a href="admin.html" class="footer-admin-link">Admin</a>
     </div>
-    <p class="footer-copy">© <span id="footer-year"></span> Salon Webb · Bygget af <a href="https://nordicoperations.dk" target="_blank" rel="noopener">Nordic Operations</a></p>
-    <p class="footer-version" id="footer-version">v1.2.0</p>
+    <p class="footer-copy">© <span id="footer-year"></span> Salon Webb ·
+      Bygget af <a href="https://nordicoperations.dk" target="_blank" rel="noopener noreferrer">Nordic Operations</a></p>
+    <p class="footer-version" id="footer-version">v1.2.2</p>
   </div>
 </footer>
 
-<!-- FAST MOBILBJÆLKE -->
+<!-- ═══════════ FAST MOBILBJÆLKE ═══════════ -->
 <nav class="mobile-bar" id="mobile-bar" aria-label="Hurtignavigation">
   <a href="#hjem" class="mb-item" data-sec="hjem">
     <span class="mb-icon">🏠</span><span class="mb-lbl">Hjem</span>
   </a>
-  <a href="#" class="mb-item" id="mb-book">
+  <a href="https://salonwebb.bestilling.nu/" target="_blank" rel="noopener noreferrer" class="mb-item">
     <span class="mb-icon">📅</span><span class="mb-lbl">Book</span>
   </a>
-  <a href="#" class="mb-item" id="mb-ring">
+  <a href="tel:+4576131413" class="mb-item">
     <span class="mb-icon">📞</span><span class="mb-lbl">Ring</span>
   </a>
-  <a href="#" class="mb-item" id="mb-sms">
+  <a href="sms:+4576131413" class="mb-item">
     <span class="mb-icon">💬</span><span class="mb-lbl">SMS</span>
   </a>
-  <a href="#" class="mb-item" id="mb-kort">
+  <a href="https://maps.google.com/?q=Bytoften+30+6710+Esbjerg"
+     target="_blank" rel="noopener noreferrer" class="mb-item">
     <span class="mb-icon">📍</span><span class="mb-lbl">Kort</span>
   </a>
 </nav>
@@ -242,7 +346,7 @@
   <button class="ip-dismiss" id="ip-dismiss" aria-label="Luk">✕</button>
 </div>
 
-<script src="data.js?v=1.2.0"></script>
-<script src="app.js?v=1.2.0"></script>
+<script src="data.js?v=1.2.2"></script>
+<script src="app.js?v=1.2.2"></script>
 </body>
 </html>
