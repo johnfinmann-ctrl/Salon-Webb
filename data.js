@@ -1,12 +1,12 @@
 /* ================================================================
-   SALON WEBB – data.js v1.0.0
+   SALON WEBB – data.js v1.1.0
    AL KUNDEDATA – redigeres via admin panel eller direkte her
    ================================================================ */
 
 const SW_DEFAULT_DATA = {
 
   meta: {
-    version: '1.0.0',
+    version: '1.1.0',
     buildDate: '2026-06-24',
     salonNavn: 'Salon Webb',
     tagline: 'Din frisør i Esbjerg',
@@ -15,7 +15,9 @@ const SW_DEFAULT_DATA = {
     ogBillede: '',
     favicon: 'icons/icon-192.png',
     themeColor: '#0E0E0E',
-    accentColor: '#C9A96E'
+    accentColor: '#C9A96E',
+    siteUrl: 'https://salonwebb.dk',
+    ferieTekst: ''
   },
 
   kontakt: {
@@ -35,6 +37,7 @@ const SW_DEFAULT_DATA = {
     baggrund: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80',
     overskrift: 'Salon Webb',
     undertitel: 'Din frisør i Esbjerg',
+    eyebrow: 'Esbjerg',
     knapper: [
       { label: 'Book tid', ikon: '📅', type: 'booking' },
       { label: 'Ring',     ikon: '📞', type: 'tlf'     },
@@ -43,135 +46,93 @@ const SW_DEFAULT_DATA = {
     ]
   },
 
+  /* Menu med ikoner der vises i mobilmenu */
   menu: [
-    { label: 'Forside',       href: '#hjem'         },
-    { label: 'Behandlinger',  href: '#behandlinger' },
-    { label: 'Priser',        href: '#priser'       },
-    { label: 'Produkter',     href: '#produkter'    },
-    { label: 'Team',          href: '#team'         },
-    { label: 'Galleri',       href: '#galleri'      },
-    { label: 'Kontakt',       href: '#kontakt'      }
+    { label: 'Forside',       href: '#hjem',        ikon: '🏠' },
+    { label: 'Behandlinger',  href: '#behandlinger',ikon: '✂️' },
+    { label: 'Priser',        href: '#priser',      ikon: '💰' },
+    { label: 'Produkter',     href: '#produkter',   ikon: '🛍️' },
+    { label: 'Team',          href: '#team',        ikon: '👥' },
+    { label: 'Galleri',       href: '#galleri',     ikon: '🖼️' },
+    { label: 'Kontakt',       href: '#kontakt',     ikon: '📞' }
   ],
 
   aabningstider: [
-    { dag: 'Mandag',   aaben: '09:00', luk: '17:30', lukket: false },
-    { dag: 'Tirsdag',  aaben: '09:00', luk: '17:30', lukket: false },
-    { dag: 'Onsdag',   aaben: '09:00', luk: '17:30', lukket: false },
-    { dag: 'Torsdag',  aaben: '09:00', luk: '20:00', lukket: false },
-    { dag: 'Fredag',   aaben: '09:00', luk: '17:30', lukket: false },
-    { dag: 'Lørdag',   aaben: '09:00', luk: '14:00', lukket: false },
-    { dag: 'Søndag',   aaben: '00:00', luk: '00:00', lukket: true  }
+    { dag: 'Mandag',   aaben: '09:00', luk: '17:30', lukket: false, helligdag: false },
+    { dag: 'Tirsdag',  aaben: '09:00', luk: '17:30', lukket: false, helligdag: false },
+    { dag: 'Onsdag',   aaben: '09:00', luk: '17:30', lukket: false, helligdag: false },
+    { dag: 'Torsdag',  aaben: '09:00', luk: '20:00', lukket: false, helligdag: false },
+    { dag: 'Fredag',   aaben: '09:00', luk: '17:30', lukket: false, helligdag: false },
+    { dag: 'Lørdag',   aaben: '09:00', luk: '14:00', lukket: false, helligdag: false },
+    { dag: 'Søndag',   aaben: '00:00', luk: '00:00', lukket: true,  helligdag: false }
+  ],
+
+  helligdage: [
+    { dato: '2026-12-24', navn: 'Juleaften – lukket' },
+    { dato: '2026-12-25', navn: '1. juledag – lukket' },
+    { dato: '2026-12-26', navn: '2. juledag – lukket' },
+    { dato: '2026-12-31', navn: 'Nytårsaften – lukket' },
+    { dato: '2027-01-01', navn: 'Nytårsdag – lukket' }
   ],
 
   team: [
     {
-      id: 't1',
-      navn: 'Louise Webb',
-      titel: 'Indehaver & Frisørmester',
+      id: 't1', navn: 'Louise Webb', titel: 'Indehaver & Frisørmester',
       bio: 'Med over 20 års erfaring er Louise hjertet i Salon Webb. Specialiseret i farveteknikker og helhedsbehandlinger.',
       foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&q=80',
-      bookingLink: 'https://salonwebb.bestilling.nu',
-      tlf: '',
-      synlig: true,
-      sortering: 1
+      bookingLink: '', tlf: '', synlig: true, sortering: 1
     },
     {
-      id: 't2',
-      navn: 'Maria Kristensen',
-      titel: 'Farvespecialist',
+      id: 't2', navn: 'Maria Kristensen', titel: 'Farvespecialist',
       bio: 'Maria er vores ekspert i balayage, highlights og kreative farver. Uddannet i både Danmark og udlandet.',
       foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&q=80',
-      bookingLink: 'https://salonwebb.bestilling.nu',
-      tlf: '',
-      synlig: true,
-      sortering: 2
+      bookingLink: '', tlf: '', synlig: true, sortering: 2
     },
     {
-      id: 't3',
-      navn: 'Sofie Larsen',
-      titel: 'Frisør',
+      id: 't3', navn: 'Sofie Larsen', titel: 'Frisør',
       bio: 'Sofie er uddannet frisør med en forkærlighed for moderne klip og naturlig styling.',
       foto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&q=80',
-      bookingLink: 'https://salonwebb.bestilling.nu',
-      tlf: '',
-      synlig: true,
-      sortering: 3
+      bookingLink: '', tlf: '', synlig: true, sortering: 3
     }
   ],
 
   behandlinger: [
-    {
-      id: 'beh1',
-      navn: 'Klip & Styling',
-      beskrivelse: 'Professionelt klip tilpasset dit hår og din stil. Inkluderer konsultation og styling.',
-      ikon: '✂️',
-      synlig: true
-    },
-    {
-      id: 'beh2',
-      navn: 'Farve & Highlights',
-      beskrivelse: 'Fra helfarve til subtile highlights – vi finder den løsning der passer dig.',
-      ikon: '🎨',
-      synlig: true
-    },
-    {
-      id: 'beh3',
-      navn: 'Balayage',
-      beskrivelse: 'Håndbemalet farveteknik for naturligt, solkysset hår med dybde og dimension.',
-      ikon: '🌅',
-      synlig: true
-    },
-    {
-      id: 'beh4',
-      navn: 'Keratin & Pleje',
-      beskrivelse: 'Intensive plejebehandlinger der genopretter, glatter og beskytter dit hår.',
-      ikon: '✨',
-      synlig: true
-    },
-    {
-      id: 'beh5',
-      navn: 'Permanent bølger',
-      beskrivelse: 'Skab blød struktur og naturlige bølger med vores permanente bølgebehandling.',
-      ikon: '🌊',
-      synlig: true
-    },
-    {
-      id: 'beh6',
-      navn: 'Skæg & Herrer',
-      beskrivelse: 'Herreklip og skægtrim med professionel finish. Inkluderer vask og styling.',
-      ikon: '💈',
-      synlig: true
-    }
+    { id: 'beh1', navn: 'Klip & Styling',      beskrivelse: 'Professionelt klip tilpasset dit hår og din stil. Inkluderer konsultation og styling.', ikon: '✂️', synlig: true },
+    { id: 'beh2', navn: 'Farve & Highlights',   beskrivelse: 'Fra helfarve til subtile highlights – vi finder den løsning der passer dig.',              ikon: '🎨', synlig: true },
+    { id: 'beh3', navn: 'Balayage',             beskrivelse: 'Håndbemalet farveteknik for naturligt, solkysset hår med dybde og dimension.',              ikon: '🌅', synlig: true },
+    { id: 'beh4', navn: 'Keratin & Pleje',      beskrivelse: 'Intensive plejebehandlinger der genopretter, glatter og beskytter dit hår.',                ikon: '✨', synlig: true },
+    { id: 'beh5', navn: 'Permanent bølger',     beskrivelse: 'Skab blød struktur og naturlige bølger med vores permanente bølgebehandling.',              ikon: '🌊', synlig: true },
+    { id: 'beh6', navn: 'Skæg & Herrer',        beskrivelse: 'Herreklip og skægtrim med professionel finish. Inkluderer vask og styling.',                ikon: '💈', synlig: true }
   ],
 
   priser: {
     kategorier: ['Damer', 'Herrer', 'Børn', 'Behandlinger'],
     liste: [
-      { id: 'p1', kategori: 'Damer', navn: 'Klip & Vask',          beskrivelse: 'Inkl. føntørring',        pris: '395',  enhed: 'kr.',     sortering: 1, synlig: true },
-      { id: 'p2', kategori: 'Damer', navn: 'Kort klip',             beskrivelse: 'Vask og styling',         pris: '345',  enhed: 'kr.',     sortering: 2, synlig: true },
-      { id: 'p3', kategori: 'Damer', navn: 'Farve – helfarve',      beskrivelse: 'Inkl. klip',              pris: '795',  enhed: 'kr.+',    sortering: 3, synlig: true },
-      { id: 'p4', kategori: 'Damer', navn: 'Highlights',            beskrivelse: 'Folier, fuld hoved',      pris: '895',  enhed: 'kr.+',    sortering: 4, synlig: true },
-      { id: 'p5', kategori: 'Damer', navn: 'Balayage',              beskrivelse: 'Håndbemalet teknik',      pris: '1095', enhed: 'kr.+',    sortering: 5, synlig: true },
-      { id: 'p6', kategori: 'Damer', navn: 'Permanent bølger',      beskrivelse: 'Inkl. klip & styling',    pris: '995',  enhed: 'kr.+',    sortering: 6, synlig: true },
-      { id: 'p7', kategori: 'Herrer', navn: 'Herreklip',            beskrivelse: 'Vask inkluderet',         pris: '245',  enhed: 'kr.',     sortering: 1, synlig: true },
-      { id: 'p8', kategori: 'Herrer', navn: 'Herreklip & skæg',     beskrivelse: 'Trim & formning',         pris: '295',  enhed: 'kr.',     sortering: 2, synlig: true },
-      { id: 'p9', kategori: 'Herrer', navn: 'Skæg trim',            beskrivelse: '',                        pris: '125',  enhed: 'kr.',     sortering: 3, synlig: true },
-      { id: 'p10',kategori: 'Herrer', navn: 'Farve herrer',         beskrivelse: 'Inkl. klip',              pris: '545',  enhed: 'kr.+',    sortering: 4, synlig: true },
-      { id: 'p11',kategori: 'Børn',  navn: 'Børn op til 12 år',    beskrivelse: 'Inkl. vask',              pris: '185',  enhed: 'kr.',     sortering: 1, synlig: true },
-      { id: 'p12',kategori: 'Børn',  navn: 'Unge 13–17 år',        beskrivelse: 'Inkl. vask',              pris: '225',  enhed: 'kr.',     sortering: 2, synlig: true },
-      { id: 'p13',kategori: 'Behandlinger', navn: 'Keratin',        beskrivelse: 'Glat og blank',           pris: '1195', enhed: 'kr.+',    sortering: 1, synlig: true },
-      { id: 'p14',kategori: 'Behandlinger', navn: 'Dybdepleje',     beskrivelse: 'Næring & fugt',           pris: '195',  enhed: 'kr.+',    sortering: 2, synlig: true },
-      { id: 'p15',kategori: 'Behandlinger', navn: 'Farvekorrektion',beskrivelse: 'Konsultation gratis',     pris: '',     enhed: 'efter aftale', sortering: 3, synlig: true }
+      { id: 'p1',  kategori: 'Damer',        navn: 'Klip & Vask',         beskrivelse: 'Inkl. føntørring',        pris: '395',  enhed: 'kr.',          sortering: 1, synlig: true },
+      { id: 'p2',  kategori: 'Damer',        navn: 'Kort klip',            beskrivelse: 'Vask og styling',         pris: '345',  enhed: 'kr.',          sortering: 2, synlig: true },
+      { id: 'p3',  kategori: 'Damer',        navn: 'Farve – helfarve',     beskrivelse: 'Inkl. klip',              pris: '795',  enhed: 'kr.+',         sortering: 3, synlig: true },
+      { id: 'p4',  kategori: 'Damer',        navn: 'Highlights',           beskrivelse: 'Folier, fuld hoved',      pris: '895',  enhed: 'kr.+',         sortering: 4, synlig: true },
+      { id: 'p5',  kategori: 'Damer',        navn: 'Balayage',             beskrivelse: 'Håndbemalet teknik',      pris: '1095', enhed: 'kr.+',         sortering: 5, synlig: true },
+      { id: 'p6',  kategori: 'Damer',        navn: 'Permanent bølger',     beskrivelse: 'Inkl. klip & styling',    pris: '995',  enhed: 'kr.+',         sortering: 6, synlig: true },
+      { id: 'p7',  kategori: 'Herrer',       navn: 'Herreklip',            beskrivelse: 'Vask inkluderet',         pris: '245',  enhed: 'kr.',          sortering: 1, synlig: true },
+      { id: 'p8',  kategori: 'Herrer',       navn: 'Herreklip & skæg',     beskrivelse: 'Trim & formning',         pris: '295',  enhed: 'kr.',          sortering: 2, synlig: true },
+      { id: 'p9',  kategori: 'Herrer',       navn: 'Skæg trim',            beskrivelse: '',                        pris: '125',  enhed: 'kr.',          sortering: 3, synlig: true },
+      { id: 'p10', kategori: 'Herrer',       navn: 'Farve herrer',         beskrivelse: 'Inkl. klip',              pris: '545',  enhed: 'kr.+',         sortering: 4, synlig: true },
+      { id: 'p11', kategori: 'Børn',         navn: 'Børn op til 12 år',   beskrivelse: 'Inkl. vask',              pris: '185',  enhed: 'kr.',          sortering: 1, synlig: true },
+      { id: 'p12', kategori: 'Børn',         navn: 'Unge 13–17 år',       beskrivelse: 'Inkl. vask',              pris: '225',  enhed: 'kr.',          sortering: 2, synlig: true },
+      { id: 'p13', kategori: 'Behandlinger', navn: 'Keratin',              beskrivelse: 'Glat og blank',           pris: '1195', enhed: 'kr.+',         sortering: 1, synlig: true },
+      { id: 'p14', kategori: 'Behandlinger', navn: 'Dybdepleje',           beskrivelse: 'Næring & fugt',           pris: '195',  enhed: 'kr.+',         sortering: 2, synlig: true },
+      { id: 'p15', kategori: 'Behandlinger', navn: 'Farvekorrektion',      beskrivelse: 'Konsultation gratis',     pris: '',     enhed: 'efter aftale', sortering: 3, synlig: true }
     ]
   },
 
   produkter: [
-    { id: 'prod1', brand: 'Wella',   navn: 'SP Hydrate Shampoo',   tekst: 'Til tørt og skadet hår',     pris: '189 kr.', img: '', logo: '', synlig: true, sortering: 1 },
-    { id: 'prod2', brand: 'Wella',   navn: 'SP Color Save Maske',  tekst: 'Beskytter farvebehandlet hår',pris: '229 kr.', img: '', logo: '', synlig: true, sortering: 2 },
-    { id: 'prod3', brand: 'OLAPLEX', navn: 'No. 3 Hair Perfector', tekst: 'Genopretter og styrker',      pris: '325 kr.', img: '', logo: '', synlig: true, sortering: 3 },
-    { id: 'prod4', brand: 'OLAPLEX', navn: 'No. 6 Bond Smoother',  tekst: 'Leave-in behandling',         pris: '299 kr.', img: '', logo: '', synlig: true, sortering: 4 },
-    { id: 'prod5', brand: 'Redken',  navn: 'All Soft Shampoo',     tekst: 'Silkeblød og fugtig',         pris: '199 kr.', img: '', logo: '', synlig: true, sortering: 5 },
-    { id: 'prod6', brand: 'Redken',  navn: 'Extreme Mask',         tekst: 'Dyb reparation',              pris: '269 kr.', img: '', logo: '', synlig: true, sortering: 6 }
+    { id: 'prod1', brand: 'Wella',   navn: 'SP Hydrate Shampoo',   tekst: 'Til tørt og skadet hår',      pris: '189 kr.', img: '', logo: '', synlig: true, sortering: 1 },
+    { id: 'prod2', brand: 'Wella',   navn: 'SP Color Save Maske',  tekst: 'Beskytter farvebehandlet hår', pris: '229 kr.', img: '', logo: '', synlig: true, sortering: 2 },
+    { id: 'prod3', brand: 'OLAPLEX', navn: 'No. 3 Hair Perfector', tekst: 'Genopretter og styrker',       pris: '325 kr.', img: '', logo: '', synlig: true, sortering: 3 },
+    { id: 'prod4', brand: 'OLAPLEX', navn: 'No. 6 Bond Smoother',  tekst: 'Leave-in behandling',          pris: '299 kr.', img: '', logo: '', synlig: true, sortering: 4 },
+    { id: 'prod5', brand: 'Redken',  navn: 'All Soft Shampoo',     tekst: 'Silkeblød og fugtig',          pris: '199 kr.', img: '', logo: '', synlig: true, sortering: 5 },
+    { id: 'prod6', brand: 'Redken',  navn: 'Extreme Mask',         tekst: 'Dyb reparation',               pris: '269 kr.', img: '', logo: '', synlig: true, sortering: 6 }
   ],
 
   galleri: [
@@ -184,11 +145,7 @@ const SW_DEFAULT_DATA = {
   ],
 
   tilbud: {
-    aktiv: false,
-    tekst: '',
-    startDato: '',
-    slutDato: '',
-    farve: '#C9A96E'
+    aktiv: false, tekst: '', startDato: '', slutDato: '', farve: '#C9A96E'
   },
 
   dokumenter: [],
