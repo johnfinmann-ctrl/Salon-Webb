@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0E0E0E">
+  <title>Salon Webb – Offline</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0E0E0E; color: #F7F4EF;
+      min-height: 100vh; display: flex;
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 32px;
+      text-align: center;
+    }
+    .logo {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.2rem; font-weight: 400;
+      letter-spacing: 0.04em; margin-bottom: 16px;
+      color: #F7F4EF;
+    }
+    .rule { width: 40px; height: 1px; background: #C9A96E; margin: 16px auto; }
+    .icon { font-size: 3rem; margin-bottom: 24px; opacity: 0.5; }
+    h1 { font-size: 1.2rem; font-weight: 500; margin-bottom: 12px; }
+    p { font-size: 0.95rem; color: rgba(247,244,239,0.55); line-height: 1.7; max-width: 320px; }
+    .actions { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 280px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: 4px;
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-gold { background: #C9A96E; color: #0E0E0E; border: none; }
+    .btn-ghost { background: transparent; color: #F7F4EF; border: 1px solid rgba(247,244,239,0.25); }
+    .btn:active { opacity: 0.8; }
+    .retry-note { margin-top: 24px; font-size: 0.78rem; color: rgba(247,244,239,0.3); }
+  </style>
+</head>
+<body>
+  <p class="logo">Salon Webb</p>
+  <div class="rule"></div>
+  <p class="icon">📡</p>
+  <h1>Du er offline</h1>
+  <p>Tjek din internetforbindelse og prøv igen. Du kan stadig ringe eller sende en SMS.</p>
+
+  <div class="actions">
+    <button class="btn btn-gold" onclick="window.location.reload()">🔄 Prøv igen</button>
+    <a href="tel:+4575000000" class="btn btn-ghost">📞 Ring til os</a>
+    <a href="sms:+4575000000" class="btn btn-ghost">💬 Send SMS</a>
+  </div>
+
+  <p class="retry-note">Siden gemmes lokalt næste gang du er online</p>
+
+  <script>
+    window.addEventListener('online', () => window.location.reload());
+  </script>
+</body>
+</html>

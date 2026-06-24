@@ -1,0 +1,36 @@
+{
+  "name": "Salon Webb",
+  "short_name": "Salon Webb",
+  "description": "Din frisør i Esbjerg – book tid, se priser og mød vores team.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0E0E0E",
+  "theme_color": "#0E0E0E",
+  "lang": "da",
+  "categories": ["lifestyle", "beauty"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Book tid",
+      "short_name": "Book",
+      "description": "Book tid hos Salon Webb",
+      "url": "https://salonwebb.bestilling.nu",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

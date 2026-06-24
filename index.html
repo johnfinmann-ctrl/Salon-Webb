@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0E0E0E">
+  <meta name="description" content="Salon Webb – Din frisør i Esbjerg. Book tid, se priser og mød vores team.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Salon Webb">
+
+  <title>Salon Webb – Din frisør i Esbjerg</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=1.0.0">
+</head>
+<body>
+
+<!-- ===== OFFLINE BANNER ===== -->
+<div id="offline-banner" class="offline-banner hidden">
+  Du er offline – visse funktioner er utilgængelige
+</div>
+
+<!-- ===== NAV (desktop) ===== -->
+<nav class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="#hjem" class="nav-logo">Salon Webb</a>
+    <ul class="nav-links">
+      <li><a href="#frisoerer">Team</a></li>
+      <li><a href="#priser">Priser</a></li>
+      <li><a href="#produkter">Produkter</a></li>
+      <li><a href="#aabningstider">Åbningstider</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="https://salonwebb.bestilling.nu" target="_blank" rel="noopener" class="nav-book">Book tid</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hjem" class="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Esbjerg</p>
+    <h1 class="hero-title">Salon Webb</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Din frisør i Esbjerg</p>
+    <div class="hero-actions">
+      <a href="https://salonwebb.bestilling.nu" target="_blank" rel="noopener" class="btn btn-primary">
+        <span class="btn-icon">📅</span> Book tid
+      </a>
+      <a href="tel:+4575000000" class="btn btn-ghost">
+        <span class="btn-icon">📞</span> Ring
+      </a>
+      <a href="sms:+4575000000" class="btn btn-ghost">
+        <span class="btn-icon">💬</span> SMS
+      </a>
+      <a href="https://maps.google.com/?q=Salon+Webb+Esbjerg" target="_blank" rel="noopener" class="btn btn-ghost">
+        <span class="btn-icon">📍</span> Find vej
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span></span>
+  </div>
+</section>
+
+<!-- ===== ATMOSFÆRE ===== -->
+<section id="atmosfaere" class="section section-light atmosfaere">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Stemning</p>
+      <h2 class="section-title">En salon der passer dig</h2>
+    </div>
+    <div class="atmo-grid">
+      <div class="atmo-card atmo-large">
+        <div class="atmo-img atmo-img-1"></div>
+        <div class="atmo-caption">Tid til dig</div>
+      </div>
+      <div class="atmo-col">
+        <div class="atmo-card">
+          <div class="atmo-img atmo-img-2"></div>
+          <div class="atmo-caption">Ekspertise</div>
+        </div>
+        <div class="atmo-card">
+          <div class="atmo-img atmo-img-3"></div>
+          <div class="atmo-caption">Stil</div>
+        </div>
+      </div>
+    </div>
+    <p class="atmo-text">Vi har hjulpet Esbjergensere med hår i over 20 år. Hos Salon Webb finder du ro, kvalitet og et team der lytter.</p>
+  </div>
+</section>
+
+<!-- ===== TEAM / FRISØRER ===== -->
+<section id="frisoerer" class="section section-dark">
+  <div class="container">
+    <div class="section-header section-header-light">
+      <p class="section-label">Vores team</p>
+      <h2 class="section-title">Mød frisørerne</h2>
+    </div>
+    <div class="team-grid" id="team-grid">
+      <!-- Injected by JS from DATA -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRISER ===== -->
+<section id="priser" class="section section-light">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Hvad koster det?</p>
+      <h2 class="section-title">Priser</h2>
+    </div>
+    <div class="price-tabs">
+      <button class="price-tab active" data-tab="damer">Damer</button>
+      <button class="price-tab" data-tab="herrer">Herrer</button>
+      <button class="price-tab" data-tab="boern">Børn</button>
+      <button class="price-tab" data-tab="behandlinger">Behandlinger</button>
+    </div>
+    <div id="price-grid" class="price-grid">
+      <!-- Injected by JS -->
+    </div>
+    <p class="price-note">Alle priser er inkl. moms. Tillæg for ekstra langt hår kan forekomme.</p>
+  </div>
+</section>
+
+<!-- ===== PRODUKTER ===== -->
+<section id="produkter" class="section section-sand">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Til salg</p>
+      <h2 class="section-title">Produkter</h2>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== ÅBNINGSTIDER ===== -->
+<section id="aabningstider" class="section section-dark">
+  <div class="container">
+    <div class="section-header section-header-light">
+      <p class="section-label">Hvornår?</p>
+      <h2 class="section-title">Åbningstider</h2>
+    </div>
+    <div class="hours-grid" id="hours-grid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== KONTAKT ===== -->
+<section id="kontakt" class="section section-light">
+  <div class="container kontakt-container">
+    <div class="section-header">
+      <p class="section-label">Vi er her</p>
+      <h2 class="section-title">Find os</h2>
+    </div>
+    <div class="kontakt-grid">
+      <div class="kontakt-info">
+        <div class="kontakt-item">
+          <span class="kontakt-icon">📍</span>
+          <div>
+            <p class="kontakt-label">Adresse</p>
+            <p id="k-adresse">Adressenavn 0, 6700 Esbjerg</p>
+          </div>
+        </div>
+        <div class="kontakt-item">
+          <span class="kontakt-icon">📞</span>
+          <div>
+            <p class="kontakt-label">Telefon</p>
+            <a href="tel:+4575000000" id="k-tlf" class="kontakt-link">75 00 00 00</a>
+          </div>
+        </div>
+        <div class="kontakt-item">
+          <span class="kontakt-icon">✉️</span>
+          <div>
+            <p class="kontakt-label">E-mail</p>
+            <a href="mailto:info@salonwebb.dk" id="k-mail" class="kontakt-link">info@salonwebb.dk</a>
+          </div>
+        </div>
+        <div class="kontakt-socials">
+          <a href="https://www.instagram.com/salonwebb" target="_blank" rel="noopener" id="k-instagram" class="social-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/salonwebb" target="_blank" rel="noopener" id="k-facebook" class="social-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+      <div class="kontakt-map">
+        <a href="https://maps.google.com/?q=Salon+Webb+Esbjerg" id="k-maps" target="_blank" rel="noopener" class="map-link">
+          <div class="map-placeholder">
+            <span class="map-icon">🗺️</span>
+            <span>Åbn i Google Maps</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-logo">Salon Webb</p>
+    <p class="footer-sub">Din frisør i Esbjerg</p>
+    <p class="footer-copy">© <span id="footer-year"></span> Salon Webb · Bygget af Nordic Operations</p>
+  </div>
+</footer>
+
+<!-- ===== FAST MOBILBJÆLKE ===== -->
+<nav class="mobile-bar" id="mobile-bar">
+  <a href="#hjem" class="mb-item active" data-section="hjem">
+    <span class="mb-icon">🏠</span>
+    <span class="mb-label">Hjem</span>
+  </a>
+  <a href="https://salonwebb.bestilling.nu" target="_blank" rel="noopener" class="mb-item">
+    <span class="mb-icon">📅</span>
+    <span class="mb-label">Book</span>
+  </a>
+  <a href="tel:+4575000000" id="mb-tlf" class="mb-item">
+    <span class="mb-icon">📞</span>
+    <span class="mb-label">Ring</span>
+  </a>
+  <a href="sms:+4575000000" id="mb-sms" class="mb-item">
+    <span class="mb-icon">💬</span>
+    <span class="mb-label">SMS</span>
+  </a>
+  <a href="https://maps.google.com/?q=Salon+Webb+Esbjerg" id="mb-maps" target="_blank" rel="noopener" class="mb-item">
+    <span class="mb-icon">📍</span>
+    <span class="mb-label">Kort</span>
+  </a>
+</nav>
+
+<!-- ===== ADMIN PANEL (skjult) ===== -->
+<div id="admin-overlay" class="admin-overlay hidden">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>Admin – Salon Webb</h2>
+      <button id="admin-close" class="admin-close">✕</button>
+    </div>
+    <div class="admin-body">
+
+      <div class="admin-section">
+        <h3>Kontakt & Links</h3>
+        <label>Telefon (tel:)</label>
+        <input type="text" id="a-tlf" placeholder="75000000">
+        <label>E-mail</label>
+        <input type="email" id="a-mail" placeholder="info@salonwebb.dk">
+        <label>Adresse (tekst)</label>
+        <input type="text" id="a-adresse" placeholder="Gaden 1, 6700 Esbjerg">
+        <label>Google Maps URL</label>
+        <input type="text" id="a-maps" placeholder="https://maps.google.com/...">
+        <label>Instagram URL</label>
+        <input type="text" id="a-instagram" placeholder="https://www.instagram.com/...">
+        <label>Facebook URL</label>
+        <input type="text" id="a-facebook" placeholder="https://www.facebook.com/...">
+        <label>Booking URL</label>
+        <input type="text" id="a-booking" placeholder="https://salonwebb.bestilling.nu">
+      </div>
+
+      <div class="admin-section">
+        <h3>Åbningstider</h3>
+        <div id="admin-hours"><!-- Rendered by JS --></div>
+      </div>
+
+      <div class="admin-section">
+        <h3>Priser – Damer</h3>
+        <div id="admin-prices-damer" class="admin-price-list"></div>
+        <button class="admin-add-btn" data-target="damer">+ Tilføj ydelse</button>
+        <h3>Priser – Herrer</h3>
+        <div id="admin-prices-herrer" class="admin-price-list"></div>
+        <button class="admin-add-btn" data-target="herrer">+ Tilføj ydelse</button>
+        <h3>Priser – Børn</h3>
+        <div id="admin-prices-boern" class="admin-price-list"></div>
+        <button class="admin-add-btn" data-target="boern">+ Tilføj ydelse</button>
+        <h3>Priser – Behandlinger</h3>
+        <div id="admin-prices-behandlinger" class="admin-price-list"></div>
+        <button class="admin-add-btn" data-target="behandlinger">+ Tilføj ydelse</button>
+      </div>
+
+      <div class="admin-section">
+        <h3>Team</h3>
+        <div id="admin-team" class="admin-team-list"></div>
+        <button class="admin-add-btn" data-target="team">+ Tilføj frisør</button>
+      </div>
+
+      <div class="admin-section">
+        <h3>Produkter</h3>
+        <div id="admin-products-list" class="admin-product-list"></div>
+        <button class="admin-add-btn" data-target="products">+ Tilføj produkt</button>
+      </div>
+
+      <div class="admin-section">
+        <h3>Tilbud / Banner</h3>
+        <label>Tekst (tom = ingen banner)</label>
+        <input type="text" id="a-tilbud" placeholder="Fx: Spar 20% på farvebehandling i marts">
+        <label>Gyldig til (dato)</label>
+        <input type="date" id="a-tilbud-dato">
+      </div>
+
+      <div class="admin-actions">
+        <button id="admin-save" class="admin-save-btn">Gem ændringer</button>
+        <button id="admin-reset" class="admin-reset-btn">Nulstil til standard</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TILBUD BANNER ===== -->
+<div id="tilbud-banner" class="tilbud-banner hidden">
+  <span id="tilbud-text"></span>
+  <button id="tilbud-close" aria-label="Luk">✕</button>
+</div>
+
+<script src="app.js?v=1.0.0"></script>
+</body>
+</html>
